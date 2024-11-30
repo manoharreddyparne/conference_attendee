@@ -1,0 +1,74 @@
+<template>
+    <lightning-card title="Attendee Registration" icon-name="standard:contact">
+        <div class="slds-p-around_medium form-container">
+            <!-- Name Input -->
+            <lightning-input 
+                label="Name" 
+                value={name} 
+                onchange={handleInputChange} 
+                data-id="name"
+                class="input-field"
+                size="large">
+            </lightning-input>
+
+            <!-- Email Input -->
+            <lightning-input 
+                label="Email" 
+                value={email} 
+                onchange={handleInputChange} 
+                data-id="email" 
+                type="email" 
+                class="input-field"
+                size="large">
+            </lightning-input>
+
+            <!-- Affiliation Input -->
+            <lightning-input 
+                label="Affiliation" 
+                value={affiliation} 
+                onchange={handleInputChange} 
+                data-id="affiliation" 
+                class="input-field"
+                size="large">
+            </lightning-input>
+
+            <!-- Session Dropdown -->
+            <lightning-combobox 
+                label="Session"
+                value={sessionId}  
+                options={sessionOptions}  
+                onchange={handleSessionChange} 
+                data-id="session"
+                class="input-field"
+                size="large">
+            </lightning-combobox>
+
+            <!-- Register Button -->
+            <lightning-button 
+                label="Register" 
+                onclick={handleRegister} 
+                variant="brand" 
+                class="slds-m-top_medium button-large">
+            </lightning-button>
+
+            <!-- OTP Input Field (Visible after registration) -->
+            <template if:true={showOTPSection}>
+                <lightning-input 
+                    label="Enter OTP"
+                    value={enteredOTP}
+                    onchange={handleInputChange}
+                    data-id="otp"
+                    type="text"
+                    class="input-field"
+                    size="large">
+                </lightning-input>
+                <lightning-button 
+                    label="Verify OTP" 
+                    onclick={handleVerifyOTP} 
+                    variant="success" 
+                    class="slds-m-top_medium button-large">
+                </lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>
